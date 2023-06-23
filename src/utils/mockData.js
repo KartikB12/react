@@ -1,57 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header=()=>{
-    return(
-        <div className="header">
-            <div>
-                < img className="logo" src="https://thumbs.dreamstime.com/b/food-delivery-logo-design-template-fast-delivery-service-sign-food-delivery-app-vector-logo-design-template-167491511.jpg"></img>
-            </div>
-            <div>
-                < h1 className="name">Kartik's Food Delivery App</h1>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Contact us</li>
-                    <li>Cart</li>
-                </ul>
-                
-            </div>
-
-        </div>
-    )
-}
-
-const styleCard={
-    backgroundColor: "#f0f0f0",
-};
-
-const RestaurantCard=(props)=>{
-    const {resData} = props;
-    const{cloudinaryImageId,name,avgRating,cuisines,deliveryTime,costForTwo} = resData?.data;
-    return(
-        <div className="res-card" style={styleCard}>
-            <img 
-              className="res-logo"
-              alt= "res-logo"
-              src ={
-                "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+resData.data.cloudinaryImageId
-              }/>
-            <h3> {name} </h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating}</h4>
-            <h4>{(costForTwo)/2} for two</h4>
-            <h4>{deliveryTime} minutes</h4>
-        </div>
-    )
-}
-
 const resList=[
     {
       "type": "restaurant",
-      "data": {
+      "data": { 
         "type": "F",
         "id": "667566",
         "name": "Popeyes",
@@ -1828,30 +1778,4 @@ const resList=[
     }
   ]
 
-const Body = ()=>{
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-               {
-                resList.map((restaurant)=>(<RestaurantCard key={restaurant.data.id} resData={restaurant}/>))
-               } 
-            </div>
-        </div>
-    );
-}
-
-//Food ordering app(Visual in notes)
-const AppLayout = ()=>{
-    return(
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    )
-       
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
+  export default resList;

@@ -1,12 +1,14 @@
 # React
 
 # Episode 1: Intro
-Basic html, css, html through js, html through react (git)
+* Basic html, css, html through js, html through react (screenshot tab)
+* Order in html is imp.
+* Anything already existing in root i.e rendered is replaced & not appended. Elements outsside root will be rendered anyway.
 
 # Episode 2: Starting the app
-* Package.json is a configuration for npm.
+* Package.json is a configuration for npm. npm init
 * Bundler packages our app for it to be deployed to production.(webpack, parcel, wheat?)
-  Create react app useds webpack.
+  Create react app useds webpack. npm i -D parcel
 * 2 types of dependencies: Dev & Normal
 * ^ caret- minor update-prefered
   ` tilde- major update
@@ -85,3 +87,23 @@ Restaurant cards: img, name of rest, rating, cuisine, delivery time
 * resData?.data- optional chaining
 * While looping each child should have a unique key(id)-Donot use index as keys, bad practice. Because in case of addition of 
   new card/ element whole thing is executed again if key is not assigned. Performance issue.
+
+# EPISODE 5
+* Best practices: Main code=> src folder
+                  Each component-seperate js file(sometimes jsx tsx)
+                  Hardcoded data-constant/util
+* Types of export/ import: export default-used only once- import
+                           named export- export const-import {}
+* State variable(Spl react variable) using Hooks. React Hooks(Normal JS utility functions)
+* 2 imp hooks: useState() & useEffect()
+* useState(): import {useState} from "react"
+              const [listOfRestaurants, setListOfRestaurant] = useState();
+              modified using: setListOfRestaurant()(setListOfRestaurant([]) for empty)
+              Whenever a state variable changes reactwill rerender the component.
+* Reconcilliation Algo to update DOM(React 16)/ React Fiber(React 18)
+  Eg: 7 rescards=>filtered to 3
+  Virtual DOM: representation of an actual DOM- an object
+  Diff ALgo: Finds out the diff between updated(say onClick) and old virtual DOM
+  After this rerendering of UI takes place. As virtual DOM is used as opposed to actual it needs less time, hence React is fast.
+  React does efficient DOM manipulation
+  Incremental rendering: ability to split work into chunks & spread over multiple frames.
